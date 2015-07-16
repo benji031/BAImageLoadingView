@@ -13,6 +13,7 @@
 		43BECB2A1B57A3A3006B4169 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43BECB291B57A3A3006B4169 /* Images.xcassets */; };
 		43BECB2D1B57A3A3006B4169 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43BECB2B1B57A3A3006B4169 /* LaunchScreen.xib */; };
 		43BECB391B57A3A3006B4169 /* BAImageLoadingExempleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BECB381B57A3A3006B4169 /* BAImageLoadingExempleTests.swift */; };
+		43BECB431B57A52F006B4169 /* BAImageLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BECB421B57A52F006B4169 /* BAImageLoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		43BECB321B57A3A3006B4169 /* BAImageLoadingExempleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BAImageLoadingExempleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		43BECB371B57A3A3006B4169 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43BECB381B57A3A3006B4169 /* BAImageLoadingExempleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BAImageLoadingExempleTests.swift; sourceTree = "<group>"; };
+		43BECB421B57A52F006B4169 /* BAImageLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BAImageLoadingView.swift; path = Classes/BAImageLoadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				43BECB291B57A3A3006B4169 /* Images.xcassets */,
 				43BECB2B1B57A3A3006B4169 /* LaunchScreen.xib */,
 				43BECB201B57A3A3006B4169 /* Supporting Files */,
+				43BECB421B57A52F006B4169 /* BAImageLoadingView.swift */,
 			);
 			path = BAImageLoadingExemple;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43BECB251B57A3A3006B4169 /* ViewController.swift in Sources */,
+				43BECB431B57A52F006B4169 /* BAImageLoadingView.swift in Sources */,
 				43BECB231B57A3A3006B4169 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,6 +345,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BAImageLoadingExemple/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -351,6 +356,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BAImageLoadingExemple/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

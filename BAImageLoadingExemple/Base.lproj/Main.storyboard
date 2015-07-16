@@ -56,10 +56,10 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="b4b-qo-iTS" customClass="BAImageLoadingView" customModule="BAImageLoadingExemple" customModuleProvider="target">
-                                <rect key="frame" x="124" y="20" width="100" height="100"/>
+                                <rect key="frame" x="484" y="480" width="100" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="tTU-ch-5gg"/>
-                                    <constraint firstAttribute="width" constant="100" id="tz9-bZ-r91"/>
+                                    <constraint firstAttribute="width" constant="100" id="q09-yh-cdN"/>
+                                    <constraint firstAttribute="height" constant="100" id="zZr-u9-DuU"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -69,39 +69,21 @@
                                         <real key="value" value="0.59999999999999998"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="progressColor">
-                                        <color key="value" red="0.35686274509999999" green="0.70980392160000005" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="progressWidth">
-                                        <real key="value" value="4"/>
+                                        <real key="value" value="2"/>
                                     </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="AyR-4C-rDi" customClass="BAImageLoadingView" customModule="BAImageLoadingExemple" customModuleProvider="target">
-                                <rect key="frame" x="232" y="20" width="100" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="FGn-oa-xRd"/>
-                                    <constraint firstAttribute="width" constant="100" id="kXf-Jk-R2k"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="50"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="maskOpacity">
-                                        <real key="value" value="0.59999999999999998"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="progressColor">
-                                        <color key="value" red="0.35686274509999999" green="0.70980392160000005" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="progressWidth">
-                                        <real key="value" value="50"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                        <real key="value" value="11"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="BZC-xo-5oG" customClass="BAImageLoadingView" customModule="BAImageLoadingExemple" customModuleProvider="target">
-                                <rect key="frame" x="16" y="128" width="100" height="100"/>
+                                <rect key="frame" x="16" y="480" width="100" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="C0E-HJ-60c"/>
-                                    <constraint firstAttribute="width" constant="100" id="WGK-H1-7xn"/>
+                                    <constraint firstAttribute="width" constant="100" id="4ys-dM-bsy"/>
+                                    <constraint firstAttribute="height" constant="100" id="nLK-q0-gb2"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -121,19 +103,40 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="AyR-4C-rDi" customClass="BAImageLoadingView" customModule="BAImageLoadingExemple" customModuleProvider="target">
+                                <rect key="frame" x="484" y="20" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="8y0-ni-8CO"/>
+                                    <constraint firstAttribute="height" constant="100" id="IIw-Ty-768"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="maskOpacity">
+                                        <real key="value" value="0.59999999999999998"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="progressColor">
+                                        <color key="value" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="progressWidth">
+                                        <real key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="O6B-R3-6fP" secondAttribute="centerX" id="4sc-Ne-MSh"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="BZC-xo-5oG" secondAttribute="bottom" constant="20" id="7T9-Xo-9zl"/>
+                            <constraint firstItem="AyR-4C-rDi" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="Bfl-YU-f8W"/>
                             <constraint firstAttribute="centerY" secondItem="O6B-R3-6fP" secondAttribute="centerY" id="GWw-c6-LYk"/>
-                            <constraint firstItem="b4b-qo-iTS" firstAttribute="leading" secondItem="Prg-xo-CIm" secondAttribute="trailing" constant="8" id="S00-5E-oZc"/>
+                            <constraint firstItem="BZC-xo-5oG" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="Tzq-zQ-fUj"/>
                             <constraint firstItem="Prg-xo-CIm" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="Vh3-Xq-taC"/>
-                            <constraint firstItem="AyR-4C-rDi" firstAttribute="leading" secondItem="b4b-qo-iTS" secondAttribute="trailing" constant="8" id="XGH-ck-BDF"/>
-                            <constraint firstItem="BZC-xo-5oG" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="XmW-vr-avD"/>
-                            <constraint firstItem="AyR-4C-rDi" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="ers-eL-pKZ"/>
+                            <constraint firstAttribute="trailing" secondItem="b4b-qo-iTS" secondAttribute="trailing" constant="16" id="YoX-3w-mno"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="b4b-qo-iTS" secondAttribute="bottom" constant="20" id="cYO-Ql-4t1"/>
                             <constraint firstItem="Prg-xo-CIm" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="mYt-6N-oek"/>
-                            <constraint firstItem="BZC-xo-5oG" firstAttribute="top" secondItem="Prg-xo-CIm" secondAttribute="bottom" constant="8" id="sU9-57-PkZ"/>
-                            <constraint firstItem="b4b-qo-iTS" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="zfY-j0-bzI"/>
+                            <constraint firstAttribute="trailing" secondItem="AyR-4C-rDi" secondAttribute="trailing" constant="16" id="s6B-sG-qtl"/>
                         </constraints>
                     </view>
                     <connections>

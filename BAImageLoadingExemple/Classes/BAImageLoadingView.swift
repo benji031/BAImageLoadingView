@@ -151,10 +151,22 @@ class BAImageLoadingView: UIImageView {
     }
     
     func stopLoading() {
+//        progressLayer.removeAllAnimations()
+//        
+//        progressLayer.removeFromSuperlayer()
+//        maskLayer.removeFromSuperlayer()
+        
         progressLayer.removeAllAnimations()
         
-        progressLayer.removeFromSuperlayer()
-        maskLayer.removeFromSuperlayer()
+        let animationEnd = CABasicAnimation(keyPath: "fillColor")
+        animationEnd.fromValue = maskLayer.fillColor
+        animationEnd.toValue = UIColor(red: 0, green: 0, blue: 0, alpha: 0).CGColor
+        animationEnd.duration = 0.2
+        animationEnd.fillMode = kCAFillModeForwards
+        animationEnd.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+        animationEnd.removedOnCompletion = false
+        
+        maskLayer.addAnimation(animationEnd, forKey: "endanimation")
     }
     
     func setLoadedImage(image: UIImage?) {
@@ -168,5 +180,8 @@ class BAImageLoadingView: UIImageView {
         setupView()
     }
     
+    override func animationDidStop(anim: CAAnimation!, finished flag: Bool) {
+        println("STOOOP")
+    }
 
 }

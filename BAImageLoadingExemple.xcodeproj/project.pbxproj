@@ -38,6 +38,7 @@
 		43BECB371B57A3A3006B4169 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43BECB381B57A3A3006B4169 /* BAImageLoadingExempleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BAImageLoadingExempleTests.swift; sourceTree = "<group>"; };
 		43BECB421B57A52F006B4169 /* BAImageLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BAImageLoadingView.swift; path = Classes/BAImageLoadingView.swift; sourceTree = "<group>"; };
+		43BECB441B57D24C006B4169 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +80,7 @@
 		43BECB1F1B57A3A3006B4169 /* BAImageLoadingExemple */ = {
 			isa = PBXGroup;
 			children = (
+				43BECB441B57D24C006B4169 /* README.md */,
 				43BECB221B57A3A3006B4169 /* AppDelegate.swift */,
 				43BECB241B57A3A3006B4169 /* ViewController.swift */,
 				43BECB261B57A3A3006B4169 /* Main.storyboard */,

@@ -140,22 +140,15 @@ class BAImageLoadingView: UIImageView {
         animationStart.fromValue = 0.0
         animationStart.toValue = 1.0
         animationStart.duration = 1.5
-        //animationStart.beginTime = 2.0
         animationStart.fillMode = kCAFillModeForwards
         animationStart.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
         
         animationGroup.animations = [animationEnd, animationStart]
         
-        //progressLayer.strokeEnd = CGFloat(1)
         progressLayer.addAnimation(animationGroup, forKey: "animations")
     }
     
     func stopLoading() {
-//        progressLayer.removeAllAnimations()
-//        
-//        progressLayer.removeFromSuperlayer()
-//        maskLayer.removeFromSuperlayer()
-        
         progressLayer.removeAllAnimations()
         
         let animationEnd = CABasicAnimation(keyPath: "fillColor")

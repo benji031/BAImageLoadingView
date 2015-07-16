@@ -53,7 +53,7 @@ class BAImageLoadingView: UIImageView {
     }
     
     /**
-     * Setup the distance between the progress bar and the border
+     * Setup the distance between the progress bar and the border (in percent)
      */
     @IBInspectable var radius: CGFloat = 50 {
         didSet {
@@ -77,9 +77,11 @@ class BAImageLoadingView: UIImageView {
         super.init(frame: frame)
         
         setupView()
-        //startLoading()
     }
     
+    /**
+     * Setup the view layer
+     */
     private func setupView() {
         let rayon: CGFloat = CGRectGetHeight(frame)/2
         
@@ -98,11 +100,11 @@ class BAImageLoadingView: UIImageView {
         progressLayer.strokeColor = progressColor.CGColor
         progressLayer.lineWidth = progressWidth
         progressLayer.strokeStart = 0.0
-#if !TARGET_INTERFACE_BUILDER
-        progressLayer.strokeEnd = 0.0
-#else
-        progressLayer.strokeEnd = 0.5
-#endif
+        #if !TARGET_INTERFACE_BUILDER
+            progressLayer.strokeEnd = 0.0
+        #else
+            progressLayer.strokeEnd = 0.5
+        #endif
         
         layer.addSublayer(progressLayer)
         
@@ -148,6 +150,9 @@ class BAImageLoadingView: UIImageView {
         progressLayer.addAnimation(animationGroup, forKey: "animations")
     }
     
+    /**
+    * Stop the loading animation on the UIImageView
+    */
     func stopLoading() {
         progressLayer.removeAllAnimations()
         
@@ -162,6 +167,12 @@ class BAImageLoadingView: UIImageView {
         maskLayer.addAnimation(animationEnd, forKey: "endanimation")
     }
     
+    /**
+     * Set the new image for UIImageView when it downloaded for exemple.
+     * This method call stopLoading()
+     *
+     * @param image The new image to display
+     */
     func setLoadedImage(image: UIImage?) {
         stopLoading()
         
@@ -172,9 +183,4 @@ class BAImageLoadingView: UIImageView {
         super.prepareForInterfaceBuilder()
         setupView()
     }
-    
-    override func animationDidStop(anim: CAAnimation!, finished flag: Bool) {
-        println("STOOOP")
-    }
-
 }

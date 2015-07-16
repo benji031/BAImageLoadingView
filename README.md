@@ -16,7 +16,15 @@ Copy the BAImageLoadingView class files into your project.
 
 ## How to Use
 
- - You can use **BAImageLoadingView** in storyboard by put custom class of UIImageView in `Identity Inspector`, you can set the attribute of ImageLoaingView in the `Attributes Inspector`.
+You can use **BAImageLoadingView** in storyboard by put custom class of UIImageView in `Identity Inspector`, you can set the attribute of ImageLoaingView in the `Attributes Inspector`.
+
+Availaible attributes :
+
+    - `cornerRadius`: Set the corner radius of the UIImage
+    - `maskOpacity` : Set the opacity of the background mask
+    - `progressColor` : Set the color of the progress bar
+    - `progressWidth` : Set the width of the progress bar
+    - `radius` : Set the distance between the progress bar and the border (in percent)
 
 ## Start loading
 
@@ -24,7 +32,7 @@ Copy the BAImageLoadingView class files into your project.
 imageLoadingView.startLoading()
 ```
 
-### Stop loading
+## Stop loading
 
 When your new image is downloaded, you can set your new image by
 

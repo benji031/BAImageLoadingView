@@ -20,11 +20,11 @@ You can use **BAImageLoadingView** in storyboard by put custom class of UIImageV
 
 Availaible attributes :
 
-    - `cornerRadius`: Set the corner radius of the UIImage
-    - `maskOpacity` : Set the opacity of the background mask
-    - `progressColor` : Set the color of the progress bar
-    - `progressWidth` : Set the width of the progress bar
-    - `radius` : Set the distance between the progress bar and the border (in percent)
+- `cornerRadius`: Set the corner radius of the UIImage
+- `maskOpacity` : Set the opacity of the background mask
+- `progressColor` : Set the color of the progress bar
+- `progressWidth` : Set the width of the progress bar
+- `radius` : Set the distance between the progress bar and the border (in percent)
 
 ## Start loading
 

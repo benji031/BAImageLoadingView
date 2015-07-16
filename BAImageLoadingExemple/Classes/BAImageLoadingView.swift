@@ -8,66 +8,121 @@
 
 import UIKit
 
+@IBDesignable
 class BAImageLoadingView: UIImageView {
-    
-    
-    /**
-     * Set the opacity of the background mask
-     */
-    var maskOpacity: CGFloat = 0.7
-    
-    /**
-     * Set the color of the progress bar
-     */
-    var progressColor: UIColor = UIColor(red: 190/255, green: 219/255, blue: 57/255, alpha: 1)
-    
-    /**
-     * Set the width of the progress bar
-     */
-    var progressWidth: CGFloat = 10.0
-    
-    var startAngle = CGFloat(3*M_PI_2)
-    var endAngle = CGFloat((3*M_PI) + (M_PI_2))
-    // Radius in percent
-    var radius: CGFloat = 50
-    
     
     private let progressLayer: CAShapeLayer = CAShapeLayer()
     private let maskLayer: CAShapeLayer = CAShapeLayer()
     
+    
+    /**
+    * Set the corner radius of the UIImage
+    */
+    @IBInspectable var cornerRadius: CGFloat = 0 {
+        didSet {
+            self.layer.cornerRadius = cornerRadius
+            self.layer.masksToBounds = true
+        }
+    }
+    
+    /**
+     * Set the opacity of the background mask
+     */
+    @IBInspectable var maskOpacity: CGFloat = 0.7 {
+        didSet {
+            setupView()
+        }
+    }
+    
+    /**
+     * Set the color of the progress bar
+     */
+    @IBInspectable var progressColor: UIColor = UIColor(red: 190/255, green: 219/255, blue: 57/255, alpha: 1) {
+        didSet {
+            setupView()
+        }
+    }
+    
+    /**
+     * Set the width of the progress bar
+     */
+    @IBInspectable var progressWidth: CGFloat = 10.0 {
+        didSet {
+            setupView()
+        }
+    }
+    
+    /**
+     * Setup the distance between the progress bar and the border
+     */
+    @IBInspectable var radius: CGFloat = 50 {
+        didSet {
+            setupView()
+        }
+    }
+    
+    var startAngle = CGFloat(3*M_PI_2)
+    var endAngle = CGFloat((3*M_PI) + (M_PI_2))
+    
+
+    
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        initProgressLayer()
+        setupView()
         startLoading()
     }
     
-    private func initProgressLayer() {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        setupView()
+        //startLoading()
+    }
+    
+    private func setupView() {
         let rayon: CGFloat = CGRectGetHeight(frame)/2
         
+        // Set the center point of the progress bar
         let centerPoint = CGPointMake(rayon , rayon)
-        var finalRadius = (rayon*radius)/100
         
+        // Get the final radius for the progress bar with radius percent
+        let finalRadius = (rayon*radius)/100
+        
+        // ************
+        // Create the progress bar layer
+        // ************
         progressLayer.path = UIBezierPath(arcCenter: centerPoint, radius: finalRadius, startAngle: startAngle, endAngle: endAngle, clockwise: true).CGPath
         progressLayer.backgroundColor = UIColor.clearColor().CGColor
         progressLayer.fillColor = nil
         progressLayer.strokeColor = progressColor.CGColor
         progressLayer.lineWidth = progressWidth
-        progressLayer.strokeStart = 0
-        progressLayer.strokeEnd = 1.0
+        progressLayer.strokeStart = 0.0
+#if !TARGET_INTERFACE_BUILDER
+        progressLayer.strokeEnd = 0.0
+#else
+        progressLayer.strokeEnd = 0.5
+#endif
         
         layer.addSublayer(progressLayer)
         
         
+        // ************
+        // Create the mask layer
+        // ************
         maskLayer.path = UIBezierPath(rect: CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame))).CGPath
         maskLayer.backgroundColor = UIColor.clearColor().CGColor
         maskLayer.fillColor = UIColor(red: 0, green: 0, blue: 0, alpha: maskOpacity).CGColor
         
-        
-        
         layer.insertSublayer(maskLayer, below: progressLayer)
     }
     
+    
+    
+    
+    /**
+     * Start the loading animation on the UIImageView
+     */
     func startLoading() {
         let animationGroup = CAAnimationGroup()
         animationGroup.duration = 1.5
@@ -94,12 +149,24 @@ class BAImageLoadingView: UIImageView {
         //progressLayer.strokeEnd = CGFloat(1)
         progressLayer.addAnimation(animationGroup, forKey: "animations")
     }
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
+    
+    func stopLoading() {
+        progressLayer.removeAllAnimations()
+        
+        progressLayer.removeFromSuperlayer()
+        maskLayer.removeFromSuperlayer()
     }
-    */
+    
+    func setLoadedImage(image: UIImage) {
+        stopLoading()
+        
+        self.image = image
+    }
+    
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        setupView()
+    }
+    
 
 }

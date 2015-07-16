@@ -157,7 +157,7 @@ class BAImageLoadingView: UIImageView {
         maskLayer.removeFromSuperlayer()
     }
     
-    func setLoadedImage(image: UIImage) {
+    func setLoadedImage(image: UIImage?) {
         stopLoading()
         
         self.image = image

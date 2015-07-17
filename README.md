@@ -2,6 +2,8 @@
 
 **BAImageLoadingView** is easy loader for UIImageView when image is downloaded or need long loading.
 
+![alt tag](https://github.com/benji031/BAImageLoadingView/blob/master/exemple.gif)
+
 ## Requirements
 
 - iOS 7.0+

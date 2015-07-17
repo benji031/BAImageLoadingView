@@ -14,6 +14,10 @@ class BAImageLoadingView: UIImageView {
     private let progressLayer: CAShapeLayer = CAShapeLayer()
     private let maskLayer: CAShapeLayer = CAShapeLayer()
     
+    /**
+     * Check if image is loading
+     */
+    var isLoading: Bool = true
     
     /**
     * Set the corner radius of the UIImage
@@ -83,6 +87,8 @@ class BAImageLoadingView: UIImageView {
      * Setup the view layer
      */
     private func setupView() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "startLoading", name: UIApplicationWillEnterForegroundNotification, object: nil)
+        
         let rayon: CGFloat = CGRectGetHeight(frame)/2
         
         // Set the center point of the progress bar
@@ -100,11 +106,12 @@ class BAImageLoadingView: UIImageView {
         progressLayer.strokeColor = progressColor.CGColor
         progressLayer.lineWidth = progressWidth
         progressLayer.strokeStart = 0.0
-        #if !TARGET_INTERFACE_BUILDER
-            progressLayer.strokeEnd = 0.0
-        #else
-            progressLayer.strokeEnd = 0.5
-        #endif
+        
+#if !TARGET_INTERFACE_BUILDER
+        progressLayer.strokeEnd = 0.0
+#else
+        progressLayer.strokeEnd = 0.5
+#endif
         
         layer.addSublayer(progressLayer)
         
@@ -126,28 +133,32 @@ class BAImageLoadingView: UIImageView {
      * Start the loading animation on the UIImageView
      */
     func startLoading() {
-        let animationGroup = CAAnimationGroup()
-        animationGroup.duration = 1.5
-        animationGroup.repeatCount = Float.infinity
-        
-        let animationEnd = CABasicAnimation(keyPath: "strokeEnd")
-        animationEnd.fromValue = 0.0
-        animationEnd.toValue = 1.0
-        animationEnd.duration = 1.0
-        animationEnd.fillMode = kCAFillModeForwards
-        animationEnd.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
-        
-        
-        let animationStart = CABasicAnimation(keyPath: "strokeStart")
-        animationStart.fromValue = 0.0
-        animationStart.toValue = 1.0
-        animationStart.duration = 1.5
-        animationStart.fillMode = kCAFillModeForwards
-        animationStart.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
-        
-        animationGroup.animations = [animationEnd, animationStart]
-        
-        progressLayer.addAnimation(animationGroup, forKey: "animations")
+        if isLoading {
+            let animationGroup = CAAnimationGroup()
+            animationGroup.duration = 1.5
+            animationGroup.repeatCount = Float.infinity
+            
+            let animationEnd = CABasicAnimation(keyPath: "strokeEnd")
+            animationEnd.fromValue = 0.0
+            animationEnd.toValue = 1.0
+            animationEnd.duration = 1.0
+            animationEnd.fillMode = kCAFillModeForwards
+            animationEnd.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+            
+            
+            let animationStart = CABasicAnimation(keyPath: "strokeStart")
+            animationStart.fromValue = 0.0
+            animationStart.toValue = 1.0
+            animationStart.duration = 1.5
+            animationStart.fillMode = kCAFillModeForwards
+            animationStart.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+            
+            animationGroup.animations = [animationEnd, animationStart]
+            
+            progressLayer.addAnimation(animationGroup, forKey: "animations")
+            
+            isLoading = true
+        }
     }
     
     /**
@@ -165,6 +176,8 @@ class BAImageLoadingView: UIImageView {
         animationEnd.removedOnCompletion = false
         
         maskLayer.addAnimation(animationEnd, forKey: "endanimation")
+        
+        isLoading = false
     }
     
     /**
